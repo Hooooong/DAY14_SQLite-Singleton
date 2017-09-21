@@ -5,8 +5,6 @@ Android Programing
 #### 공부정리
 ____________________________________________________
 
-SQLite, Singleton Pattern, Context
-
 ##### __SQLite__
 
 - SQLite 란?
