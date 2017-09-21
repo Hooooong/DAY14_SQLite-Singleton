@@ -21,7 +21,7 @@ SQLite, Singleton Pattern, Context
 
     - SQLite 는 파일 단위로 관리하기에 경로는 `/data/data/패키지명/database/데이터베이스명` 이다.
 
-    - Android 는 SQLite 접속을 쉽게 하기 위해 `SQLiteOpenHelper` 클래스를 재공한다.
+    - Android 는 SQLite 접속을 쉽게 하기 위해 `SQLiteOpenHelper` 클래스를 재공한다.<br>
 
     ```java
     public class DBHelper extends SQLiteOpenHelper {
@@ -30,8 +30,8 @@ SQLite, Singleton Pattern, Context
     }
     ```
 
-    - `SQLiteOpenHelper` 는 기본적으로 `생성자`, `onCreate()`, `onUpgrade()` 메소드를 재정의해야 한다.
-
+    - `SQLiteOpenHelper` 는 기본적으로 `생성자`, `onCreate()`, `onUpgrade()` 메소드를 재정의해야 한다.<br>
+    
     ```java
     // DB name
     private static final String DB_NAME = "sqlite.db";
@@ -94,7 +94,7 @@ SQLite, Singleton Pattern, Context
 
 - SQLite 사용
 
-    - `SQLiteDatabase` 객체를 사용하여 각종 Query 를 실행할 수 있다. `SQLiteDatabase` 는 읽기, 쓰기에 따라 `getWritableDatabase()`, `getReadableDatabase()` 메소드를 사용한다.
+    - `SQLiteDatabase` 객체를 사용하여 각종 Query 를 실행할 수 있다. `SQLiteDatabase` 는 읽기, 쓰기에 따라 `getWritableDatabase()`, `getReadableDatabase()` 메소드를 사용한다.<br>
 
     ```java
     // 읽기
@@ -103,7 +103,7 @@ SQLite, Singleton Pattern, Context
     SQLiteDatabase con = dbHelper.getWritableDatabase();
     ```
 
-    - 실행 : 삽입, 수정, 삭제는 `execSQL(실행할 쿼리문)` 메소드를 사용한다.
+    - 실행 : 삽입, 수정, 삭제는 `execSQL(실행할 쿼리문)` 메소드를 사용한다.<br>
 
     ```java
     con.execSQL(쿼리);
@@ -111,7 +111,7 @@ SQLite, Singleton Pattern, Context
 
     - 실행 : 검색은 `Cursor` 객체를 활용하여 row 단위로 찾아온다.
 
-    ![Cursor 사용](https://github.com/Hooooong/DAY14_SQLite-Singleton/blob/master/%EC%BA%A1%EC%B2%98.PNG)
+    ![Cursor 사용](https://github.com/Hooooong/DAY14_SQLite-Singleton/blob/master/image/%EC%BA%A1%EC%B2%98.PNG)
 
     ```java
     // 2. 조작
@@ -150,7 +150,7 @@ SQLite, Singleton Pattern, Context
 
   - 위 설명과 동일하게 DB에서 긴 시간이 걸리는 Connection 의 시간을 줄이기 위해 Singleton Pattern 을 사용한다.
 
-  - Android 경우 Memory Pool 이 꽉찰 경우 가장 먼저하는것이 DB Connection 을 닫기 때문에 조심해서 작성해야 한다.
+  - Android 경우 Memory Pool 이 꽉차는 순간 가장 먼저하는것이 DB Connection 을 닫기 때문에 조심해서 작성해야 한다.
 
   ```java
   // DB가 가장 느린 구간은 첫 생성 시 Connection 할 때 가장 느리다.
