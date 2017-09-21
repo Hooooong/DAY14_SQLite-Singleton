@@ -21,7 +21,7 @@ SQLite, Singleton Pattern, Context
 
     - SQLite 는 파일 단위로 관리하기에 경로는 `/data/data/패키지명/database/데이터베이스명` 이다.
 
-    - Android 는 SQLite 접속을 쉽게 하기 위해 `SQLiteOpenHelper` 클래스를 재공한다.<br>
+    - Android 는 SQLite 접속을 쉽게 하기 위해 SQLiteOpenHelper 클래스를 재공한다.
 
     ```java
     public class DBHelper extends SQLiteOpenHelper {
@@ -30,8 +30,8 @@ SQLite, Singleton Pattern, Context
     }
     ```
 
-    - `SQLiteOpenHelper` 는 기본적으로 `생성자`, `onCreate()`, `onUpgrade()` 메소드를 재정의해야 한다.<br>
-    
+    - SQLiteOpenHelper 는 기본적으로 생성자, onCreate(), onUpgrade() 메소드를 재정의해야 한다.
+
     ```java
     // DB name
     private static final String DB_NAME = "sqlite.db";
@@ -94,7 +94,7 @@ SQLite, Singleton Pattern, Context
 
 - SQLite 사용
 
-    - `SQLiteDatabase` 객체를 사용하여 각종 Query 를 실행할 수 있다. `SQLiteDatabase` 는 읽기, 쓰기에 따라 `getWritableDatabase()`, `getReadableDatabase()` 메소드를 사용한다.<br>
+    - `SQLiteDatabase` 객체를 사용하여 각종 Query 를 실행할 수 있다. `SQLiteDatabase` 는 읽기, 쓰기에 따라 getWritableDatabase(), getReadableDatabase() 메소드를 사용한다.
 
     ```java
     // 읽기
@@ -103,13 +103,13 @@ SQLite, Singleton Pattern, Context
     SQLiteDatabase con = dbHelper.getWritableDatabase();
     ```
 
-    - 실행 : 삽입, 수정, 삭제는 `execSQL(실행할 쿼리문)` 메소드를 사용한다.<br>
+    - 실행 : 삽입, 수정, 삭제는 execSQL(실행할 쿼리문) 메소드를 사용한다.
 
     ```java
     con.execSQL(쿼리);
     ```
 
-    - 실행 : 검색은 `Cursor` 객체를 활용하여 row 단위로 찾아온다.
+    - 실행 : 검색은 Cursor 객체를 활용하여 row 단위로 찾아온다.
 
     ![Cursor 사용](https://github.com/Hooooong/DAY14_SQLite-Singleton/blob/master/image/%EC%BA%A1%EC%B2%98.PNG)
 
