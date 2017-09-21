@@ -9,7 +9,6 @@ SQLite, Singleton Pattern, Context
 
 ##### __SQLite__
 
-
 - SQLite 란?
 
     - SQLite란 오라클, MS-SQL, MySQL과 달리 소규모 DB에 사용되는 관계형 데이터베이스이다.
@@ -30,12 +29,6 @@ SQLite, Singleton Pattern, Context
 
     }
     ```
-
-    메소드|설명
-    :----:|:----:
-    생성자(context, name, factory, version)| `SQLiteOpenHelper` 에 필요한 리터럴을 정의한다.<br> context : 필요한 Activity 의 Context, name : DB의 이름<br> factory : ~~ , version : DB버전
-    onCreate()| DB를 새로 생성할 때 호출되는 함수. 주로 `CREATE TABLE` 문을 실행한다.
-    onUpgrade()| DB Version 을 확인하여 기존 DB보다 Version 차이가 있으면 실행한다. 주로 `ALTER TABLE` 문을 실행한다.
 
     - `SQLiteOpenHelper` 는 기본적으로 `생성자`, `onCreate()`, `onUpgrade()` 메소드를 재정의해야 한다.
 
@@ -118,7 +111,7 @@ SQLite, Singleton Pattern, Context
 
     - 실행 : 검색은 `Cursor` 객체를 활용하여 row 단위로 찾아온다.
 
-    ![Cursor 사용]()
+    ![Cursor 사용](https://github.com/Hooooong/DAY14_SQLite-Singleton/blob/master/%EC%BA%A1%EC%B2%98.PNG)
 
     ```java
     // 2. 조작
