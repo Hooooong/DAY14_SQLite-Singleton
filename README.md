@@ -11,7 +11,7 @@ ____________________________________________________
 
     - SQLite란 오라클, MS-SQL, MySQL과 달리 소규모 DB에 사용되는 관계형 데이터베이스이다.
 
-    - 데이터를 따로 백업하는 것이 아닌 파일 상태로 이동한다.
+    - 데이터를 따로 백업하는 것이 아닌 파일 상태로 관리한다.
 
     - 기본적으로 이 공간은 다른 애플리케이션이 액세스할 수 없기 때문에 저장된 데이터는 안전하게 유지된다.
 
@@ -24,11 +24,11 @@ ____________________________________________________
     ```java
     public class DBHelper extends SQLiteOpenHelper {
     // 코드 작성
-
     }
     ```
 
     - SQLiteOpenHelper 는 기본적으로 생성자, onCreate(), onUpgrade() 메소드를 재정의해야 한다.
+
 
     ```java
     // DB name
@@ -94,6 +94,7 @@ ____________________________________________________
 
     - `SQLiteDatabase` 객체를 사용하여 각종 Query 를 실행할 수 있다. `SQLiteDatabase` 는 읽기, 쓰기에 따라 getWritableDatabase(), getReadableDatabase() 메소드를 사용한다.
 
+
     ```java
     // 읽기
     SQLiteDatabase con = dbHelper.getWritableDatabase();
@@ -102,6 +103,7 @@ ____________________________________________________
     ```
 
     - 실행 : 삽입, 수정, 삭제는 execSQL(실행할 쿼리문) 메소드를 사용한다.
+
 
     ```java
     con.execSQL(쿼리);
@@ -173,3 +175,5 @@ ____________________________________________________
       }
   }
   ```
+
+- 참조 : [Singleton Pattern](https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80%ED%84%B4_%ED%8C%A8%ED%84%B4)
